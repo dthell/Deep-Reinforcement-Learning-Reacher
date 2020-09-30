@@ -2,6 +2,8 @@
 
 [image1]: https://user-images.githubusercontent.com/10624937/43851024-320ba930-9aff-11e8-8493-ee547c6af349.gif "Trained Agent"
 [image2]: https://user-images.githubusercontent.com/10624937/43851646-d899bf20-9b00-11e8-858c-29b5c2c94ccc.png "Crawler"
+[image3]: https://github.com/dthell/Deep-Reinforcement-Learning-Reacher/Trained_Agent.gif "1 Trained Agent"
+[image4]: https://github.com/dthell/Deep-Reinforcement-Learning-Reacher/Learning_Graph "Learning Graph"
 
 
 # Project 2: Continuous Control
@@ -125,5 +127,7 @@ Trained parameters are provided for these Agents (see testing the trained agent 
 ### The results
 
 The training of the single agent version reached an average score of +30 in 334 episodes. It seems that a plateau is reached after 400 episodes where the average score is between 42 and 45. The weights can be loaded and tested by running the cell in section 5.
+![1 Trained Agent][image3]
 
 The graph of the scores achieved is available in the directory and in the section 6.
+![Learning Graph][image4]
