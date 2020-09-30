@@ -124,6 +124,6 @@ Trained parameters are provided for these Agents (see testing the trained agent 
 
 ### The results
 
-The training of the single agent version reached an average score of +30 in XXX episodes. It seems that a plateau is reached after 400 episodes where the average score is between 42 and 45. The weights can be loaded and tested by running the cell in section 5.
+The training of the single agent version reached an average score of +30 in 334 episodes. It seems that a plateau is reached after 400 episodes where the average score is between 42 and 45. The weights can be loaded and tested by running the cell in section 5.
 
 The graph of the scores achieved is available in the directory and in the section 6.
