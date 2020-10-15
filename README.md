@@ -94,7 +94,7 @@ There are 6 sections:
 5. The test a train agent is here to test the trained agent and see how it interacts better with the environment
 6. The last section shows the training scores graph
 
-Some of agent parameters (actor and critic learning rates, the update frequency and the weight decay) can be updated at the begining of section 4 to test other parameters. For the hyperparameters not exposed in the function, they are at the begining of the ddpg_agent_v2.py, resp. ddpg_agent_v20_agents.py, file.
+Some of agent parameters (actor and critic learning rates, the update frequency and the weight decay) can be updated at the begining of section 4 to test other parameters. For the hyperparameters not exposed in the function, they are at the begining of the ddpg_agent_v2.py, resp. agent_v20_agents.py, file.
 
 The trained weights used in section 5 are only valid for the hyperparameters initially given in the files.
 
@@ -102,7 +102,7 @@ The trained weights used in section 5 are only valid for the hyperparameters ini
 
 The implemented models are a DDPG algorithm and an A2C algorithm.
 
-For the DDPg algorithm
+For the DDPG algorithm
 Various deep NN have been tested for the actor and critic network used in this problem and the best and simplest design among the similar results for this environment is the following:
 
 Actor model: 1 batch normalization layer, 2 hidden layers NN, all fully-connected, with sizes:
