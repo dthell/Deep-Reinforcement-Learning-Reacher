@@ -4,6 +4,10 @@
 [image2]: https://user-images.githubusercontent.com/10624937/43851646-d899bf20-9b00-11e8-858c-29b5c2c94ccc.png "Crawler"
 [image3]: https://github.com/dthell/Deep-Reinforcement-Learning-Reacher/blob/master/Trained_Agent.gif "1 Trained Agent"
 [image4]: https://github.com/dthell/Deep-Reinforcement-Learning-Reacher/blob/master/Learning_Graph.JPG "Learning Graph"
+[image5]: https://github.com/dthell/Deep-Reinforcement-Learning-Reacher/blob/master/Learning_Graph_20_DDPG.JPG "Learning Graph 2"
+[image6]: https://github.com/dthell/Deep-Reinforcement-Learning-Reacher/blob/master/Learning_Graph_20_A2C.JPG "Learning Graph 3"
+[image7]: https://github.com/dthell/Deep-Reinforcement-Learning-Reacher/blob/master/Trained_20_Agents_A2C.gif "20 Trained Agents A2C"
+[image8]: https://github.com/dthell/Deep-Reinforcement-Learning-Reacher/blob/master/Trained_20_Agents.gif "20 Trained Agents"
 
 
 # Project 2: Continuous Control
@@ -71,31 +75,34 @@ The code uses the following dependencies:
 - PyTorch (torch version 0.4.0)
 - random
 - matplotlib.pyplot (matplotlib 	version 3.3.2)
-- ddpg_agent_v2 from which Agent is imported
-- model_v2 from which actor and Critic are imported
+- ddpg_agent_v2 from which Agent is imported (version with 1 agent)
+- model_v2 from which Actor and Critic are imported (version with 1 agent)
+- agent_v20_agents from which Agent_DDPG and Agent_A2C are imported (version with 20 agents)
+- model_v20_agents from which Actor, Critic and ActorCritic are imported (version with 20 agents)
 
 The versions are for indication only as the one used to develop the code but the code may run with other versions.
 
 ### Instructions
 
-Follow the instructions in `Continuous_Control.ipynb`.
+Follow the instructions in `Continuous_Control.ipynb` for the  1 agent version or in `Continuous_Control_20.ipynb` for the 20 agents version.
 
 There are 6 sections:
 1. Starting the environment to import the required dependancies and start the Unity environment
 2. The second section is dedicated to getting some knowledge about the state and action spaces
 3. The 3rd section is testing random actions to see how to interact with the environment
-4. The training the agent section defines an agent with specific hyperparameters, defines the DDPG training routine and then calls it to train the agent
+4. The training the agent section defines an agent with specific hyperparameters, defines the DDPG training routine and then calls it to train the agent. A second training routine based on the A2C algorithm is also provided in this section.
 5. The test a train agent is here to test the trained agent and see how it interacts better with the environment
 6. The last section shows the training scores graph
 
-Some of agent parameters (actor and critic learning rates, the update frequency and the weight decay) can be updated at the begining of section 4 to test other parameters. For the hyperparameters not exposed in the function, they are at the begining of the ddpg_agent_v2.py file.
+Some of agent parameters (actor and critic learning rates, the update frequency and the weight decay) can be updated at the begining of section 4 to test other parameters. For the hyperparameters not exposed in the function, they are at the begining of the ddpg_agent_v2.py, resp. ddpg_agent_v20_agents.py, file.
 
 The trained weights used in section 5 are only valid for the hyperparameters initially given in the files.
 
 ### The Model
 
-The implemented model is a DDPG algorithm.
+The implemented models are a DDPG algorithm and an A2C algorithm.
 
+For the DDPg algorithm
 Various deep NN have been tested for the actor and critic network used in this problem and the best and simplest design among the similar results for this environment is the following:
 
 Actor model: 1 batch normalization layer, 2 hidden layers NN, all fully-connected, with sizes:
@@ -124,6 +131,8 @@ The training was done with the hyperparameters:
 
 Trained parameters are provided for these Agents (see testing the trained agent section below).
 
+For the A2C algorithm, the parameters were similar, slightly simpler for one critic layer (128 nodes instead of 256). They are further discussed in the report.pdf located at the same place as this readme file.
+
 ### The results
 
 The training of the single agent version reached an average score of +30 in 334 episodes. It seems that a plateau is reached after 400 episodes where the average score is between 42 and 45. The weights can be loaded and tested by running the cell in section 5.
@@ -133,3 +142,17 @@ The training of the single agent version reached an average score of +30 in 334 
 The graph of the scores achieved is available in the directory and in the section 6.
 
 ![Learning Graph][image4]
+
+The training of the 20 agents version reached an average score of +30 in 622 episodes. After this level, the scores drop a bit for the next 28 episodes. No further training was tested on this DDPG algorithm. The results are less convincing than for the single agent version with some agents behaving perfectly while others struggle to reach the sphere. It seems the position and movement of the sphere is sometimes hard to reach.
+
+![Learning Graph 2][image5]
+
+![20 Trained Agents][image8]
+
+For the A2C algorithm, the training was faster, reaching a score of +30 in 322 episodes for the 20 agents version.
+
+![Learning Graph 3][image6]
+
+The agents have a good behaviour for slow spheres but still some training is needed for fast moving spheres.
+
+![20 Trained Agents A2C][image7]
